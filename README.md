@@ -1,6 +1,6 @@
 # FlightFinder
 
-One of the things I enjoy doing the most is traveling. But, as a college student, I need to travel on a budget. That is why I love tools like SkyScanner, which can show me the cheapest destinations for a given departure aiport. My goals with this tool are to learn F#, learn how to connect desktop applications to different APIs for increased functionality, and to ultimately make a tool that will give me a list of the cheapest destinations 1 week into the future at any given day.
+One of the things I enjoy doing the most is traveling. But, as a college student, I need to travel on a budget. That is why I love tools like SkyScanner, which can show me the cheapest destinations for a given departure aiport. My goals with this tool are to learn F#, learn how to connect desktop applications to different APIs for increased functionality, and to ultimately make a tool that will give me a list of the cheapest destinations 1 week into the future at any given day. This will be a novelty app and little more, though perhaps it will actually be useful. 
 
 ## Getting Started
 
