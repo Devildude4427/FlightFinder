@@ -23,7 +23,7 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(label)
 
-        uic.loadUi((os.path.join('user_interface', 'mainwindow2.ui')), self)
+        uic.loadUi((os.path.join('user_interface', 'main_window.ui')), self)
 
 
 app = QApplication(sys.argv)
