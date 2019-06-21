@@ -1,35 +1,12 @@
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5 import uic
-
-import os
-import sys
+import webview
 
 
-class MainWindow(QMainWindow):
-
-    def __init__(self, *args, **kwargs):
-        super(MainWindow, self).__init__(*args, **kwargs)
-
-        self.setWindowTitle("Flight Finder")
-
-        logo = QIcon()
-        logo.addPixmap(QPixmap(os.path.join('resources', 'ico-noB-512.png')))
-        self.setWindowIcon(logo)
-
-        label = QLabel("Flight Finder")
-        label.setAlignment(Qt.AlignCenter)
-
-        self.setCentralWidget(label)
-
-        uic.loadUi((os.path.join('user_interface', 'main_window.ui')), self)
+class MainWindow:
+    def __init__(self):
+        w = webview.WebView(width=1080, height=720, title="Flight Finder",
+                            url="https://google.com", resizable=True, debug=False)
+        w.run()
 
 
-app = QApplication(sys.argv)
-
-
-window = MainWindow()
-window.show()
-
-app.exec()
+if __name__ == "__main__":
+    MainWindow()
