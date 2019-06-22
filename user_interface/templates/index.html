@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta content="">
-    <style></style>
-  </head>
-  <body>
-    <h1>Flight Finder application</h1>
-    <h2>Hello World!</h2>
-  </body>
+    <head>
+        <title>Flight Finder Main</title>
+        <link rel="shortcut icon" href="../static/resources/ico-rounded-512.png">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+<!--        <link rel="stylesheet" href="{{ url_for('static', filename='css/debug.css') }}">-->
+        <style>
+            .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            html, body, .section, .container, .columns, .column {
+                height: 100%;
+            /*    background: linear-gradient(90deg, #EEE 50%, #1A1A1D 50%);*/
+            }
+
+            .columnLeft {
+                background-color: #EEEEEE;
+            }
+
+            .columnRight {
+                background-color: #1A1A1D;
+            }
+
+        </style>
+    </head>
+
+    <body class="is-fullheight">
+<!--        <section class="hero has-background-black">-->
+<!--            <div class="hero-body">-->
+<!--                <div class="container">-->
+<!--                    <figure class="image center">-->
+<!--                        <img alt="logo" src="../static/resources/ico-2k.png" style="max-width: 512px"/>-->
+<!--                    </figure>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+        <section class="section">
+			<div class="container">
+				<div class="columns">
+					<div class="column columnLeft">
+						<p class="is-size-3 center">Inputs and Fields</p>
+					</div>
+					<div class="column columnRight">
+						<figure class="image center">
+						    <img alt="Flight Finder Logo" src="../static/resources/ico-2k.png" style="max-width: 256px;">
+					    </figure>
+                        <p class="is-size-2 center" style="color: #C3073F;">Flight Finder</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</body>
 </html>
