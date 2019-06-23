@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
 @server.route("/")
 def hello():
-    return render_template("index.html")
+    return render_template("landing.html")
