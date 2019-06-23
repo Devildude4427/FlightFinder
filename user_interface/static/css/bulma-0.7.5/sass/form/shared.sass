@@ -28,20 +28,22 @@ $input-radius: $radius !default
 =input
   @extend %control
   background-color: $input-background-color
-  border-color: $input-border-color
+  border-color: transparent
   border-radius: $input-radius
   color: $input-color
   +placeholder
     color: $input-placeholder-color
   &:hover,
   &.is-hovered
-    border-color: $input-hover-border-color
+    //border-color: transparent
+    border-bottom: 2px solid #C3073F
   &:focus,
   &.is-focused,
   &:active,
   &.is-active
-    border-color: $input-focus-border-color
-    box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color
+    //border-color: $input-focus-border-color
+    //box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color
+    border-bottom: 2px solid #C3073F
   &[disabled],
   fieldset[disabled] &
     background-color: $input-disabled-background-color

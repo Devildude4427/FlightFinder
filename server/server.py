@@ -1,4 +1,3 @@
-import os
 from flask import Flask, render_template
 
 ui_dir = "../user_interface"
@@ -14,5 +13,10 @@ if __name__ == "__main__":
 
 
 @server.route("/")
-def hello():
+def landing():
     return render_template("landing.html")
+
+
+@server.route("/search")
+def search():
+    return render_template("search.html")
