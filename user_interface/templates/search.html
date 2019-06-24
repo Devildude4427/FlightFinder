@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Flight Finder Search</title>
+        <link rel="shortcut icon" href="../static/resources/ico-rounded-512.png">
+
+        <link rel="stylesheet" href="../static/css/index.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+<!--        <link rel="stylesheet" href="{{ url_for('static', filename='css/debug.css') }}">-->
     </head>
     <body>
-        
-    </body>
+        <section class="section">
+			<div class="container">
+                <div class="columns">
+                    <div class="column columnLeft">
+                        <div class="field">
+                          <label class="label">Port of Departure</label>
+                          <div class="control">
+                            <input class="input" type="text" placeholder="e.g London">
+                          </div>
+                        </div>
+                        <div class="field">
+                          <label class="label center">Email</label>
+                          <div class="control">
+                            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="column columnRight">
+                        <p class="is-size-2 center" style="color: #C3073F;">Results</p>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+
+        <script>
+            // Prevents context menu, so that it feels more native
+            // window.oncontextmenu = (e) => {
+            //   e.preventDefault();
+            // }
+        </script>
+	</body>
 </html>

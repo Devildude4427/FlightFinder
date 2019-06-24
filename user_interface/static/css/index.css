@@ -7880,6 +7880,14 @@ label.panel-block:hover {
   }
 }
 
+.columnLeft {
+  background-color: #C3073F;
+}
+
+.columnRight {
+  background-color: #EEE;
+}
+
 .columns.is-variable {
   --columnGap: 0.75rem;
   margin-left: calc(-1 * var(--columnGap));
@@ -9138,6 +9146,28 @@ label.panel-block:hover {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enter-button {
+  margin-top: 60vh;
+  margin-left: 20px;
+  margin-right: 30px;
+  background-color: #C3073F;
+  color: #EEE;
+}
+
+html, body, .section, .container, .columns, .column {
+  height: 100%;
+}
+
+html {
+  background: linear-gradient(90deg, #C3073F 50%, #EEE 50%);
 }
 
 /*# sourceMappingURL=index.css.map */
