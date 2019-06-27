@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Flight Finder Main</title>
+        <link rel="shortcut icon" href="../static/resources/ico-rounded-512.png">
+
+        <link rel="stylesheet" href="../static/css/index.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+<!--        <link rel="stylesheet" href="{{ url_for('static', filename='css/debug.css') }}">-->
+        <style>
+            .input {
+                outline: 0;
+                border-bottom: 2px solid #1a1a1d;
+                background-color: #EEE;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="section">
+			<div class="container">
+                <div class="columns">
+                    <div class="column columnLeft">
+                         <figure class="image center">
+                            <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png" style="max-width: 256px; margin-top: 100px;">
+                        </figure>
+                        <p class="center title" style="color: #EEE;">Flight Finder</p>
+                        <p class="center subtitle" style="color: #EEE; margin-top: 40px;">Finding you the cheapest getaway destinations</p>
+                    </div>
+                    <div class="column columnRight">
+                       <a href="/search" class="center subtitle button enter-button">Enter</a>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+
+        <script>
+            // Prevents context menu, so that it feels more native
+            // window.oncontextmenu = (e) => {
+            //   e.preventDefault();
+            // }
+        </script>
+
+	</body>
+</html>
