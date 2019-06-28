@@ -21,6 +21,11 @@ def search_page():
     return render_template("search.html")
 
 
+@server.route("/photon", methods=["GET"])
+def tailwind_page():
+    return render_template("photon.html")
+
+
 @server.route("/search", methods=["POST"])
 def search_flights():
     form = FormData(

@@ -1,0 +1,13 @@
+.pane {
+    text-align: center;
+}
+
+.leftPane {
+    background-color: #C3073F;
+    color: #EEE;
+}
+
+.rightPane {
+    background-color: #EEE;
+    color: #C3073F;
+}
