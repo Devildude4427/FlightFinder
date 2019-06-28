@@ -162,8 +162,9 @@ function _defineProperty(e, t, r) {
             return t(f.attributes[e])
         }
 
-        function n(e, t) {
-            let r = e + "-" + t,
+        function n(data_type, attribute_name) {
+            console.log("E: " + data_type + " T: " + attribute_name);
+            let r = data_type + "-" + attribute_name,
                 a = u.element.getAttribute("data-" + r);
             if (a) try {
                 let n = function() {
@@ -176,16 +177,16 @@ function _defineProperty(e, t, r) {
             }
         }
 
-        function i(e, t, r) {
-            return a(r).reduce(function(a, i) {
-                let s = n(t, i);
-                return void 0 !== s && (e[r] = s), e
+        function i(e, data_type, attribute_name) {
+            return a(attribute_name).reduce(function(a, i) {
+                let s = n(data_type, i);
+                return void 0 !== s && (e[attribute_name] = s), e
             }, e)
         }
 
-        function s(e, t) {
+        function s(e, data_type) {
             return Object.keys(f.attributes).reduce(function(e, r) {
-                return i(e, t, r)
+                return i(e, data_type, r)
             }, e)
         }
 
@@ -199,6 +200,7 @@ function _defineProperty(e, t, r) {
         function d(e, t) {
             let r = o(e),
                 a = u.lookupLocation(t, u.widgetType);
+            console.log("A: " + a);
             a && u.setParam(r, a)
         }
 
@@ -240,7 +242,6 @@ function _defineProperty(e, t, r) {
             });
             this.mergeAttributesIntoParams();
             let requestURL = createRequestURL("/v1.0/" + this.locale + "/" + this.market + "/" + this.currency + "/widgets/" + this.widgetType, this.params);
-            console.log(requestURL);
             if (void 0 !== this.scope.widgets.renderCache[requestURL]) {
                 let t = this.scope.widgets.renderCache[requestURL];
                 this.render(t.code, t.personalise)

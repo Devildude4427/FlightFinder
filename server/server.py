@@ -2,9 +2,8 @@ from server.domain.form_data import FormData
 import urllib.request
 from flask import Flask, render_template, request
 
-ui_dir = "../user_interface"
 server = Flask(
-    __name__, static_folder=ui_dir + "/static", template_folder=ui_dir + "/templates"
+    __name__, static_folder="../static", template_folder="../templates"
 )
 
 
