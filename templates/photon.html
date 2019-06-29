@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Flight Finder</title>
 
-         <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
         <style>
@@ -13,20 +13,33 @@
     </head>
     <body>
         <div class="window">
-          <div class="window-content">
-            <div class="pane-group">
-              <div class="pane leftPane">
-                  <div style="display: inline-block;">
-                      <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png" style="max-width: 256px; margin-top: 80px;">
-                  </div>
-                  <h2>Flight Finder</h2>
-                  <h3 style="margin-top: 20px; word-break: break-word; white-space:normal;">Finding you the cheapest getaway destinations</h3>
-              </div>
-              <div class="pane rightPane">
-                  <h2 style="margin-top: 40px;">Getting Started</h2>
-              </div>
+            <div class="window-content">
+                <div class="pane-group">
+                    <div class="pane leftPane">
+                        <div style="display: inline-block;">
+                            <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png" style="max-width: 256px; margin-top: 80px;">
+                        </div>
+                        <h2>Flight Finder</h2>
+                        <h3 style="margin-top: 20px; word-break: break-word; white-space:normal;">Finding you the cheapest getaway destinations</h3>
+                    </div>
+                    <div class="pane rightPane">
+                        <h2 style="margin-top: 40px;">Getting Started</h2>
+                        <form style="margin-top: 1vh;">
+                            <div class="form-group">
+                                <h4>Port of Departure</h4>
+                                <input type="text" id="portDeparture" class="form-control" placeholder="e.g London Gatwick">
+                            </div>
+                            <div class="form-group">
+                                <h4>Date of Departure</h4>
+                                <input type="date" class="form-control" placeholder="06/10/2019">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-form btn-primary">OK</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </body>
 </html>

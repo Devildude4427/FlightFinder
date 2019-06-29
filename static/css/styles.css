@@ -1,13 +1,19 @@
 .pane {
-    text-align: center;
+
 }
 
 .leftPane {
     background-color: #C3073F;
+    text-align: center;
     color: #EEE;
 }
 
 .rightPane {
-    background-color: #EEE;
+    padding: 20px;
+    background-color: #EFEFEF;
     color: #C3073F;
+}
+
+#portDeparture {
+    z-index: 1;
 }

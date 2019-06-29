@@ -7,11 +7,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
         <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-<!--        <link rel="stylesheet" href="{{ url_for('static', filename='css/debug.css') }}">-->
+        <!--        <link rel="stylesheet" href="{{ url_for('static', filename='css/debug.css') }}">-->
     </head>
     <body>
         <section class="section">
-			<div class="container">
+            <div class="container">
                 <div class="columns">
                     <div class="column columnLeft">
                         <p class="is-size-2 center" style="color: #EEE;">Results</p>
@@ -19,30 +19,30 @@
                     <div class="column columnRight">
                         <form action="{{ url_for('search_flights') }}" method="post">
                             <div class="field" style="margin-top: 20vh;">
-                              <label class="label subtitle" style="color: #C50740;">Port of Departure</label>
-                              <div class="control">
-                                <input class="input" type="text" id="departureLocation" placeholder="e.g London">
-                              </div>
+                                <label class="label subtitle" style="color: #C50740;">Port of Departure</label>
+                                <div class="control">
+                                    <input class="input" type="text" id="departureLocation" placeholder="e.g London">
+                                </div>
                             </div>
                             <div class="field">
-                              <label class="label subtitle" style="color: #C50740; margin-top: 5vh;">Date of Departure</label>
-                              <div class="control">
-                                <input class="input" type="date" name="dateOutbound" placeholder="06/20/2019">
-                              </div>
+                                <label class="label subtitle" style="color: #C50740; margin-top: 5vh;">Date of Departure</label>
+                                <div class="control">
+                                    <input class="input" type="date" name="dateOutbound" placeholder="06/20/2019">
+                                </div>
                             </div>
                             <div class="field">
-                              <label class="label subtitle" style="color: #C50740; margin-top: 5vh;">Earliest Time of Departure</label>
-                              <div class="control">
-                                <input class="input" type="time" placeholder="13:00">
-                              </div>
+                                <label class="label subtitle" style="color: #C50740; margin-top: 5vh;">Earliest Time of Departure</label>
+                                <div class="control">
+                                    <input class="input" type="time" placeholder="13:00">
+                                </div>
                             </div>
                             <button type="button" onclick="skyScannerAutoSuggest()">Submit</button>
                         </form>
-<!--                        <div data-skyscanner-widget="SearchWidget"></div>-->
+                        <!--                        <div data-skyscanner-widget="SearchWidget"></div>-->
                     </div>
                 </div>
-			</div>
-		</section>
+            </div>
+        </section>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script>
@@ -62,6 +62,6 @@
             //   e.preventDefault();
             // }
         </script>
-        <script src="../static/skyscanner.js"></script>
-	</body>
+        <script src="../static/js/skyscanner.js"></script>
+    </body>
 </html>
