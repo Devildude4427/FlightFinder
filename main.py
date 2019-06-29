@@ -12,7 +12,7 @@ def start_ui():
         width=980,
         height=720,
         title="Flight Finder",
-        url="http://127.0.0.1:5000/photon",
+        url="http://127.0.0.1:5000/",
         resizable=True,
         debug=True,
     )

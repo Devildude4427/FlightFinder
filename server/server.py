@@ -13,17 +13,7 @@ def run_server():
 
 @server.route("/", methods=["GET"])
 def landing_page():
-    return render_template("landing.html")
-
-
-@server.route("/search", methods=["GET"])
-def search_page():
-    return render_template("search.html")
-
-
-@server.route("/photon", methods=["GET"])
-def tailwind_page():
-    return render_template("photon.html")
+    return render_template("index.html")
 
 
 @server.route("/search", methods=["POST"])
