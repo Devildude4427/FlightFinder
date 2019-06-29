@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.min.css') }}">
 
         <style>
 
@@ -27,11 +28,11 @@
                         <form style="margin-top: 1vh;">
                             <div class="form-group">
                                 <h4>Port of Departure</h4>
-                                <input type="text" id="portDeparture" class="form-control" placeholder="e.g London Gatwick">
+                                <input type="text" id="portOutbound" class="form-control" placeholder="e.g London Gatwick">
                             </div>
                             <div class="form-group">
                                 <h4>Date of Departure</h4>
-                                <input type="date" class="form-control" placeholder="06/10/2019">
+                                <input type="text" id="dateOutbound" class="form-control" placeholder="06/10/2019">
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-form btn-primary">OK</button>
@@ -41,5 +42,12 @@
                 </div>
             </div>
         </div>
+
+        <script src="{{ url_for('static', filename='js/datepicker.min.js') }}"></script>
+        <script>
+            datepicker('#dateOutbound', {
+                minDate: new Date()
+            })
+        </script>
     </body>
 </html>
