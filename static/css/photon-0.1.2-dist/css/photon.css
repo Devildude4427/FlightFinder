@@ -593,10 +593,6 @@ input[type="checkbox"] {
   border-radius: 4px;
   outline: none;
 }
-.form-control:focus {
-  border-color: #6db3fd;
-  box-shadow: 3px 3px 0 #6db3fd, -3px -3px 0 #6db3fd, -3px 3px 0 #6db3fd, 3px -3px 0 #6db3fd;
-}
 
 textarea {
   height: auto;
