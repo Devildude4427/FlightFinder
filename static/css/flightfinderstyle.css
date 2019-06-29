@@ -1,0 +1,21 @@
+.pane {
+
+}
+
+.leftPane {
+    background-color: #C3073F;
+    text-align: center;
+    color: #EEE;
+}
+
+.rightPane {
+    padding: 20px;
+    background-color: #EFEFEF;
+    color: #C3073F;
+}
+
+.rightPane input {
+    border: 0;
+    border-bottom: 2px solid #C3073F;
+    background: transparent;
+}
