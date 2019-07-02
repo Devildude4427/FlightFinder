@@ -2,9 +2,7 @@ from server.domain.form_data import FormData
 import urllib.request
 from flask import Flask, render_template, request
 
-server = Flask(
-    __name__, static_folder="../static", template_folder="../templates"
-)
+server = Flask(__name__, static_folder="../static", template_folder="../templates")
 
 
 def run_server():
@@ -16,22 +14,10 @@ def landing_page():
     return render_template("index.html")
 
 
-@server.route("/search", methods=["POST"])
-def search_flights():
-    form = FormData(
-        request.form.get("departureLocation"),
-        request.form.get("dateOutbound"),
-        request.form.get("earliestTimeOutbound"),
-        request.form.get("dateInbound"),
-        request.form.get("earliestTimeInbound"),
-    )
-    return "hello"
-
-
 def create_api_request(form_data):
     api_request = urllib.request.Request(
         "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/"
-        + "BRS-sky/anywhere/2019-09-01?inboundpartialdate=2019-12-01"
+        + "BRS-sky/anywhere/2019-09-01?inboundpartialdate=anytime"
     )
     api_request.add_header(
         "X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
