@@ -7,10 +7,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/flightfinderstyle.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.min.css') }}">
-
-        <style>
-
-        </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete.min.css') }}">
     </head>
     <body>
         <div class="window">
@@ -28,10 +25,7 @@
                         <form style="margin-top: 1vh;">
                             <div class="form-group">
                                 <h4>Port of Departure</h4>
-                                <input class="form-control" type="text" id="portOutbound" list="huge_list" placeholder="e.g London Gatwick" autocomplete="on">
-                                <datalist id="huge_list">
-                                    <option value=""></option>
-                                </datalist>
+                                <input class="form-control" type="text" id="portOutbound" placeholder="e.g London Gatwick" tabindex="1">
                             </div>
                             <div class="form-group">
                                 <h4>Date of Departure</h4>
@@ -50,6 +44,7 @@
             </div>
         </div>
 
+        <script src="{{ url_for('static', filename='js/autocomplete.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 <!--        Date picker code-->
