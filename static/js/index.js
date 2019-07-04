@@ -53,8 +53,12 @@ new autoComplete({
             const data = await source.json();
             // Return Fetched data
             let places = [];
-            data.forEach(function(item) {
-                places.push(item.PlaceName)
+            data.forEach(function(location) {
+                let PlaceId = location.PlaceId;
+                if (location.PlaceId === location.CityId) {
+                    PlaceId = "Any"
+                }
+                places.push(location.PlaceName + " (" + PlaceId + ") " + location.CountryName)
             });
             return places;
         },
@@ -72,10 +76,9 @@ new autoComplete({
     searchEngine: "strict",              // Search Engine type/mode           | (Optional)
     resultsList: {                       // Rendered results list object      | (Optional)
         render: true,
-        container: source => {
-            resultsListID = "food_List";
-            return resultsListID;
-        },
+        // container: source => {
+        //     return "autoComplete_Results_List";
+        // },
         destination: document.querySelector("#portOutbound"),
         position: "afterend",
         element: "ul"

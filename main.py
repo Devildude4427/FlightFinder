@@ -11,10 +11,10 @@ def start_ui():
     w = webview.WebView(
         width=980,
         height=720,
-        title="Flight Finder",
-        url="http://127.0.0.1:5000/",
         resizable=True,
         debug=True,
+        url="http://127.0.0.1:5000/",
+        title="Flight Finder"
     )
     w.run()
 
