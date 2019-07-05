@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/flightfinderstyle.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/auto-complete.css') }}">
     </head>
     <body>
         <div class="window">
@@ -19,7 +19,6 @@
                         </div>
                         <h2>Flight Finder</h2>
                         <h3 style="margin-top: 20px; word-break: break-word; white-space:normal;">Finding you the cheapest getaway destinations</h3>
-<!--                        <div data-skyscanner-widget="SearchWidget"></div>-->
                     </div>
                     <div class="pane rightPane">
                         <h2 style="margin-top: 40px;">Getting Started</h2>
@@ -45,7 +44,7 @@
             </div>
         </div>
 
-        <script src="{{ url_for('static', filename='js/autocomplete.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/auto-complete.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 <!--        Date picker code-->
@@ -55,6 +54,5 @@
                 minDate: new Date()
             })
         </script>
-        <script src="{{ url_for('static', filename='js/skyscanner.js') }}"></script>
     </body>
 </html>
