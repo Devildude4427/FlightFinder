@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <title>Flight Finder</title>
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/flightfinderstyle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/auto-complete.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/auto-complete.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/flightfinderstyle.css') }}">
     </head>
     <body>
         <div class="window">
@@ -34,6 +34,10 @@
                             <div class="form-group">
                                 <h4>Earliest Time of Departure</h4>
                                 <input class="form-control" type="datetime-local" id="earliestTimeOutbound" placeholder="12:00 PM">
+                            </div>
+                            <div class="form-group">
+                                <h4>Latest Time of Arrival</h4>
+                                <input class="form-control" type="datetime-local" id="latestTimeInbound" placeholder="12:00 PM">
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-form btn-primary">OK</button>
