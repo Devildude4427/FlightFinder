@@ -14,7 +14,7 @@ def start_ui():
         resizable=True,
         debug=True,
         url="http://127.0.0.1:5000/",
-        title="Flight Finder"
+        title="Flight Finder",
     )
     w.run()
 
