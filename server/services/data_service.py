@@ -1,20 +1,18 @@
-from json import load
+from flask import jsonify
+from server.domain.flight import Flight
 
-data_file = load(open("server/data/data.json"))
 
+def process_response(api_response):
+    quotes = api_response["Quotes"]
+    places = api_response["Places"]
+    carriers = api_response["Carriers"]
 
-def process_response():
-    quotes = data_file["Quotes"]
-    places = data_file["Places"]
-    carriers = data_file["Carriers"]
-
-    results = 0
+    results = []
 
     for quote in quotes:
         # Price capped at 40 GBP one way, and only direct flights
         if quote["MinPrice"] > 40.00 or not quote["Direct"]:
             continue
-        results += 1
         for place in places:
             if place["PlaceId"] == quote["OutboundLeg"]["DestinationId"]:
                 quote["OutboundLeg"]["DestinationId"] = place["Name"]
@@ -24,14 +22,13 @@ def process_response():
                 quote["OutboundLeg"]["CarrierIds"] = carrier["Name"]
                 break
 
-        print(
-            "Quote Id: {}, Destinations: {}, Price: {}, Carrier: {}, Direct: {}".format(
-                quote["QuoteId"],
+        results.append(
+            Flight(
                 quote["OutboundLeg"]["DestinationId"],
                 quote["MinPrice"],
+                quote["OutboundLeg"]["DepartureDate"],
                 quote["OutboundLeg"]["CarrierIds"],
-                quote["Direct"]
             )
         )
 
-    print("The search came back with {} valid results".format(results))
+    return jsonify(quotes=[e.to_json() for e in results])
