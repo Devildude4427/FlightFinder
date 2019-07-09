@@ -1,4 +1,4 @@
-class Flight:
+class FlightQuote:
     destination = ""
     price = 0.00
     date_outbound = ""

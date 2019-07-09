@@ -1,5 +1,5 @@
 from flask import jsonify
-from server.domain.flight import Flight
+from server.domain.flight_quote import FlightQuote
 
 
 def process_response(api_response):
@@ -23,7 +23,7 @@ def process_response(api_response):
                 break
 
         results.append(
-            Flight(
+            FlightQuote(
                 quote["OutboundLeg"]["DestinationId"],
                 quote["MinPrice"],
                 quote["OutboundLeg"]["DepartureDate"],
