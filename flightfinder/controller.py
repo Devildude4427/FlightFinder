@@ -2,7 +2,7 @@ from json import load
 from flask import render_template, Blueprint
 from flightfinder.services import data_service
 
-controller = Blueprint('controller', __name__)
+controller = Blueprint("controller", __name__)
 
 
 @controller.route("/", methods=["GET"])
