@@ -38,16 +38,13 @@
                             </div>
                             <button type="button" onclick="skyScannerAutoSuggest()">Submit</button>
                         </form>
-                        <!--                        <div data-skyscanner-widget="SearchWidget"></div>-->
+                        <!--                        <div mocks-skyscanner-widget="SearchWidget"></div>-->
                     </div>
                 </div>
             </div>
         </section>
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
         <script>
-
-
             function skyScannerAutoSuggest() {
                 const url = "https://www.skyscanner.net/g/autosuggest-flights/GB/en-GB/" + document.getElementById('departureLocation').value +"?ccy=GBP";
                 const xmlHttp = new XMLHttpRequest();
@@ -62,6 +59,6 @@
             //   e.preventDefault();
             // }
         </script>
-        <script src="../static/js/skyscanner.js"></script>
+        <script src="../../static/js/skyscanner.js"></script>
     </body>
 </html>

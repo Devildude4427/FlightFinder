@@ -4,13 +4,10 @@
         <meta charset="UTF-8">
         <title>Flight Finder</title>
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/flightfinderstyle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/photon-0.1.2-dist/css/photon.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.min.css') }}">
-
-        <style>
-
-        </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/auto-complete.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/flightfinderstyle.css') }}">
     </head>
     <body>
         <div class="window">
@@ -28,11 +25,19 @@
                         <form style="margin-top: 1vh;">
                             <div class="form-group">
                                 <h4>Port of Departure</h4>
-                                <input type="text" id="portOutbound" class="form-control" placeholder="e.g London Gatwick">
+                                <input class="form-control" type="text" id="portOutbound" placeholder="e.g London Gatwick" tabindex="1">
                             </div>
                             <div class="form-group">
                                 <h4>Date of Departure</h4>
-                                <input type="text" id="dateOutbound" class="form-control" placeholder="06/10/2019">
+                                <input class="form-control" type="text" id="dateOutbound" placeholder="06/10/2019">
+                            </div>
+                            <div class="form-group">
+                                <h4>Earliest Time of Departure</h4>
+                                <input class="form-control" type="datetime-local" id="earliestTimeOutbound" placeholder="12:00 PM">
+                            </div>
+                            <div class="form-group">
+                                <h4>Latest Time of Arrival</h4>
+                                <input class="form-control" type="datetime-local" id="latestTimeInbound" placeholder="12:00 PM">
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-form btn-primary">OK</button>
@@ -43,6 +48,10 @@
             </div>
         </div>
 
+        <script src="{{ url_for('static', filename='js/auto-complete.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+<!--        Date picker code-->
         <script src="{{ url_for('static', filename='js/datepicker.min.js') }}"></script>
         <script>
             datepicker('#dateOutbound', {
