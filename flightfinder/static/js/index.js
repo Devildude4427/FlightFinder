@@ -37,7 +37,7 @@ new autoComplete({
         else PlaceId = PlaceId.slice(0, -4);
 
         return '<div class="autocomplete-suggestion" outbound-iata-code="' + uncutPlaceId + '" ' +
-               'data-val="' + PlaceName + ' (' + PlaceId + ') ' + CountryName +'">' +
+               'mocks-val="' + PlaceName + ' (' + PlaceId + ') ' + CountryName +'">' +
                     '<b>' + PlaceName + '</b>' +
                     ' (' + PlaceId + ') ' + CountryName +'' +
                '</div>'

@@ -1,5 +1,5 @@
 from flask import jsonify
-from server.domain.flight_quote import FlightQuote
+from flightfinder.models.flight_quote import FlightQuote
 
 
 def process_response(api_response):
