@@ -22,6 +22,11 @@
     flex: 1;
 }
 
+#quotes {
+    height: 90vh;
+    overflow-y:auto;
+}
+
 .right-pane {
     background-color: #EFEFEF;
     color: #C3073F;
