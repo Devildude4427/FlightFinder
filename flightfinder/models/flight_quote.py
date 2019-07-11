@@ -12,8 +12,8 @@ class FlightQuote:
 
     def to_json(self):
         return {
-            "Destination": self.destination,
-            "Price": self.price,
-            "DateOutbound": self.date_outbound,
-            "Carrier": self.carrier,
+            "destination": self.destination,
+            "price": self.price,
+            "dateOutbound": self.date_outbound,
+            "carrier": self.carrier,
         }
