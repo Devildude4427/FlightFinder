@@ -37,7 +37,7 @@ pip install -r requirements.txt
 Finally, start the app:
 
 ```
-python3 main.py
+python3 setup.py
 ```
 
 A GUI will appear that you can use to run the program.
