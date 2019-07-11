@@ -1,3 +1,7 @@
+datepicker('#date-outbound', {
+    minDate: new Date()
+});
+
 let outboundIATACode = "";
 
 new autoComplete({
