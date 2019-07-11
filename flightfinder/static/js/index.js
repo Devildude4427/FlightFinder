@@ -20,7 +20,7 @@ new autoComplete({
         fetch(apiRequest)
             .then(response => {
                 if (response.ok) {
-                    return response.json()
+                    return response.json();
                 }
             })
             .then(data => {
@@ -55,12 +55,24 @@ function postInputs() {
     fetch("/getQuotes", {
         method: "POST",
         body: JSON.stringify({
-            portOutbound: document.getElementById("port-outbound"),
+            portOutbound: outboundIATACode,
             dateOutbound: document.getElementById("date-outbound"),
             earliestTimeOutbound: document.getElementById("earliest-time-outbound"),
         })
     }).then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+    }).then(data => {
         document.getElementsByClassName("slide")[0].style.top = "-100vh";
-        console.log("POST response: " + response)
-    });
+        const quoteParent = document.getElementById("quotes");
+        for (let i = 0; i < data.quotes.length; i++) {
+            const destination = document.createElement("h4");
+            destination.innerHTML = data.quotes[i].destination;
+            quoteParent.appendChild(destination);
+            const price = document.createElement("p");
+            price.innerHTML = "£" + data.quotes[i].price;
+            quoteParent.appendChild(price);
+        }
+    })
 }
