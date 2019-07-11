@@ -1,7 +1,7 @@
 let outboundIATACode = "";
 
 new autoComplete({
-    selector: 'input[id="portOutbound"]',
+    selector: 'input[id="port-outbound"]',
     minChars: 3,
     delay: 250,
     source: function (term, suggest) {
@@ -48,14 +48,15 @@ new autoComplete({
 });
 
 function postInputs() {
-    const responsePromise = fetch("/getQuotes", {
+    fetch("/getQuotes", {
         method: "POST",
         body: JSON.stringify({
-            portOutbound: document.getElementById("portOutbound"),
-            dateOutbound: document.getElementById("dateOutbound"),
-            earliestTimeOutbound: document.getElementById("dateOutbound"),
+            portOutbound: document.getElementById("port-outbound"),
+            dateOutbound: document.getElementById("date-outbound"),
+            earliestTimeOutbound: document.getElementById("earliest-time-outbound"),
         })
-    }).then(response =>{
-            console.log("POST response: " + response)
+    }).then(response => {
+        document.getElementsByClassName("slide")[0].style.top = "-100vh";
+        console.log("POST response: " + response)
     });
 }

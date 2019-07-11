@@ -13,36 +13,43 @@
         <div class="window">
             <div class="window-content">
                 <div class="pane-group">
-                    <div class="pane leftPane">
-                        <div style="display: inline-block;">
-                            <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png" style="max-width: 256px; margin-top: 80px;">
+                    <div class="pane left-pane">
+                        <div class="slide">
+                            <div class="title-pane">
+                                <div style="display: inline-block;">
+                                    <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png" style="max-width: 256px; margin-top: 80px;">
+                                </div>
+                                <h2>Flight Finder</h2>
+                                <h3 style="margin-top: 20px; word-break: break-word; white-space:normal;">Finding you the cheapest getaway destinations</h3>
+                            </div>
+                            <div class="quote-pane">
+                                <h2>Quotes</h2>
+                            </div>
                         </div>
-                        <h2>Flight Finder</h2>
-                        <h3 style="margin-top: 20px; word-break: break-word; white-space:normal;">Finding you the cheapest getaway destinations</h3>
                     </div>
-                    <div class="pane rightPane">
+                    <div class="pane right-pane">
                         <span style="float: right" class="icon icon-menu"></span>
                         <h2 style="margin-top: 40px;">Getting Started</h2>
                         <form>
                             <div class="form-group">
-                                <label for="portOutbound">Port of Departure</label>
-                                <input class="form-control" type="text" id="portOutbound" placeholder="e.g London Gatwick" tabindex="1">
+                                <label for="port-outbound">Port of Departure</label>
+                                <input class="form-control" type="text" id="port-outbound" placeholder="e.g London Gatwick" tabindex="1">
                             </div>
                             <div class="form-group">
-                                <label for="dateOutbound">Date of Departure</label>
-                                <input class="form-control" type="text" id="dateOutbound" placeholder="06/10/2019">
+                                <label for="date-outbound">Date of Departure</label>
+                                <input class="form-control" type="text" id="date-outbound" placeholder="06/10/2019">
                             </div>
                             <div class="form-group">
-                                <label for="earliestTimeOutbound">Earliest Time of Departure</label>
-                                <input class="form-control" type="datetime-local" id="earliestTimeOutbound" placeholder="12:00 PM">
+                                <label for="earliest-time-outbound">Earliest Time of Departure</label>
+                                <input class="form-control" type="datetime-local" id="earliest-time-outbound" placeholder="12:00 PM">
                             </div>
                             <div class="form-actions">
-                                <button type="button" class="btn btn-large btn-ff" id="submitButton" onclick="postInputs()">Get Results</button>
+                                <button type="button" class="btn btn-large btn-ff" onclick="postInputs()">Get Results</button>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div style=";" class="pane-sm sideMenu">...</div>
+<!--                <div style=";" class="pane-sm side-menu">...</div>-->
             </div>
         </div>
 
@@ -55,8 +62,6 @@
             datepicker('#dateOutbound', {
                 minDate: new Date()
             });
-
-            document.getElementById("submitButton").addEventListener("click", event => event.preventDefault());
         </script>
     </body>
 </html>

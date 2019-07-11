@@ -1,16 +1,29 @@
-.leftPane {
+.left-pane {
     background-color: #C3073F;
     text-align: center;
     color: #EEE;
+    overflow: hidden;
+    position: relative;
 }
 
-.rightPane {
+.slide {
+    position: absolute;
+	top: 0;
+	transition: all 1s;
+}
+
+.title-pane, .quote-pane {
+    height: 100vh;
+    flex: 1;
+}
+
+.right-pane {
     padding: 20px;
     background-color: #EFEFEF;
     color: #C3073F;
 }
 
-.rightPane input {
+.right-pane input {
     border: 0;
     border-bottom: 2px solid #C3073F;
     background: transparent;
@@ -35,11 +48,12 @@ label {
     border-color: #950740;
     background: #C3073F;
 }
+
 .btn-ff:active {
     background-color: #6F2232;
 }
 
-.sideMenu {
+.side-menu {
     position: absolute;
     right:0;
     background-color: #EEEEEE;
