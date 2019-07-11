@@ -1,3 +1,7 @@
+.pane {
+    padding: 20px;
+}
+
 .left-pane {
     background-color: #C3073F;
     text-align: center;
@@ -7,6 +11,7 @@
 }
 
 .slide {
+    width: calc(100% - 40px);
     position: absolute;
 	top: 0;
 	transition: all 1s;
@@ -18,7 +23,6 @@
 }
 
 .right-pane {
-    padding: 20px;
     background-color: #EFEFEF;
     color: #C3073F;
 }
