@@ -10,7 +10,7 @@ def landing_page():
     return render_template("index.html")
 
 
-@controller.route("/destinations", methods=["GET"])
+@controller.route("/getQuotes", methods=["POST"])
 def destinations_data():
     # response = api_service.request()
     response = load(open("flightfinder/mocks/data.json"))

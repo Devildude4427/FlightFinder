@@ -15,3 +15,33 @@
     border-bottom: 2px solid #C3073F;
     background: transparent;
 }
+
+label {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.btn-ff {
+    font-size: 14px;
+    margin-top: 5vh;
+    color: #EFEFEF;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-color: #950740;
+    background: #C3073F;
+}
+.btn-ff:active {
+    background-color: #6F2232;
+}
+
+.sideMenu {
+    position: absolute;
+    right:0;
+    background-color: #EEEEEE;
+    z-index: 1
+}

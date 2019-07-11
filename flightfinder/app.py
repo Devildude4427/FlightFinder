@@ -7,6 +7,7 @@ import logging
 
 logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
 server = Flask(__name__, static_folder="static", template_folder="templates")
 server.register_blueprint(controller)
 
