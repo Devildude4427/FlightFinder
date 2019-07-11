@@ -68,7 +68,7 @@ function postInputs() {
         const quoteParent = document.getElementById("quotes");
         for (let i = 0; i < data.quotes.length; i++) {
             const destination = document.createElement("h4");
-            destination.innerHTML = data.quotes[i].destination;
+            destination.innerHTML = data.quotes[i].destination + ", " + data.quotes[i].country;
             quoteParent.appendChild(destination);
             const price = document.createElement("p");
             price.innerHTML = "£" + data.quotes[i].price;
