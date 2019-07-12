@@ -83,7 +83,7 @@ function _defineProperty(e, t, r) {
         if ("string" == typeof t) try {
             a = JSON.parse(t)
         } catch (e) {
-            this.addError("Error parsing JSON mocks: " + t)
+            this.addError("Error parsing JSON data: " + t)
         } else a = t;
         e.forEach(function(e) {
             r.setSimpleParam(e.paramKey, a && a[e.objectKey] || null)
@@ -139,7 +139,7 @@ function _defineProperty(e, t, r) {
                 }
             })
         } catch (e) {
-            this.addError("Error parsing mocks-script-parameters: " + r, e)
+            this.addError("Error parsing data-script-parameters: " + r, e)
         }
     }, u.parseLocationParams = function() {
         function e(e) {
@@ -165,13 +165,13 @@ function _defineProperty(e, t, r) {
         function n(data_type, attribute_name) {
             console.log("E: " + data_type + " T: " + attribute_name);
             let r = data_type + "-" + attribute_name,
-                a = u.element.getAttribute("mocks-" + r);
+                a = u.element.getAttribute("data-" + r);
             if (a) try {
                 let n = function() {
                     return eval("(" + a + ")")
                 }.apply(u);
                 if (void 0 === n || "undefined" === n) throw "Undefined value";
-                return u.element.removeAttribute("mocks-" + r), n
+                return u.element.removeAttribute("data-" + r), n
             } catch (e) {
                 console.warn("Failed to evaluate location " + r + " script: " + e)
             }
@@ -319,7 +319,7 @@ function _defineProperty(e, t, r) {
         })
     }, d.widgets.load = function(e) {
         e = e || o;
-        let t = e("[mocks-skyscanner-widget]");
+        let t = e("[data-skyscanner-widget]");
         t && t.forEach(function(e) {
             if (!(e.dataset.skyscannerWidgetLoading || e.dataset.skyscannerWidgetLoaded || e.dataset.skyscannerWidgetError)) {
                 e.dataset.skyscannerWidgetLoading = !0;
