@@ -1,16 +1,18 @@
-datepicker('#date-outbound', {
-    minDate: new Date()
+let outboundIATACode = "";
+let dateOutbound = "";
+
+datepicker("#date-outbound", {
+    minDate: new Date(),
+    onSelect: (instance) => dateOutbound = (instance.dateSelected).toISOString().split("T")[0]
 });
 
-let outboundIATACode = "";
-
-new autoComplete({
-    selector: 'input[id="port-outbound"]',
+new AutoComplete({
+    selector: "input[id='port-outbound']",
     minChars: 3,
     delay: 250,
     source: function (term, suggest) {
-        const apiRequest = new Request('https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/' +
-            'apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=' + term, {
+        const apiRequest = new Request("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/" +
+            "apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=" + term, {
             headers: {
                     "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
                     "X-RapidAPI-Key": "70f8ad8a68mshf3eb22144cd2fbbp1c6840jsn4efbf8230f95"
@@ -18,12 +20,12 @@ new autoComplete({
         });
 
         fetch(apiRequest)
-            .then(response => {
+            .then((response) => {
                 if (response.ok) {
                     return response.json();
                 }
             })
-            .then(data => {
+            .then((data) => {
                 let places = [];
                 const {Places} = data;
                 Places.forEach(location => {
@@ -47,7 +49,7 @@ new autoComplete({
                "</div>"
     },
     onSelect: function (e, term, item) {
-        outboundIATACode = item.getAttribute('outbound-iata-code');
+        outboundIATACode = item.getAttribute("outbound-iata-code");
     }
 });
 
@@ -56,8 +58,8 @@ function postInputs() {
         method: "POST",
         body: JSON.stringify({
             portOutbound: outboundIATACode,
-            dateOutbound: document.getElementById("date-outbound"),
-            earliestTimeOutbound: document.getElementById("earliest-time-outbound"),
+            dateOutbound: dateOutbound,
+            earliestTimeOutbound: document.getElementById("earliest-time-outbound").value,
         })
     }).then(response => {
         if (response.ok) {
@@ -74,5 +76,5 @@ function postInputs() {
             price.innerHTML = "£" + data.quotes[i].price;
             quoteParent.appendChild(price);
         }
-    })
+    });
 }
