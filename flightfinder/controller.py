@@ -17,6 +17,6 @@ def destinations_data():
     if request.json:
         logger.info("Quote request received by server")
     response = api_service.request(request.json)
-    # response = load(open("flightfinder/mocks/newData.json"))
+    # response = load(open("flightfinder/mock/data.json"))
     results = data_service.process_response(response)
     return results
