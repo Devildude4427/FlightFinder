@@ -10,24 +10,36 @@ def process_response(api_response):
     results = []
 
     for quote in quotes:
+        destination_airport = ""
+        destination_country = ""
+        carrier_outbound = ""
+        carrier_inbound = ""
+
         # Price capped at 40 GBP one way, and only direct flights
-        if quote["MinPrice"] > 40.00 or not quote["Direct"]:
+        if quote["MinPrice"] > 100.00 or not quote["Direct"]:
             continue
         for place in places:
             if place["PlaceId"] == quote["OutboundLeg"]["DestinationId"]:
-                quote["OutboundLeg"]["DestinationId"] = place["Name"]
+                destination_airport = place["Name"]
+                destination_country = place["CountryName"]
                 break
         for carrier in carriers:
             if carrier["CarrierId"] in quote["OutboundLeg"]["CarrierIds"]:
-                quote["OutboundLeg"]["CarrierIds"] = carrier["Name"]
+                carrier_outbound = carrier["Name"]
+            if carrier["CarrierId"] in quote["InboundLeg"]["CarrierIds"]:
+                carrier_inbound = carrier["Name"]
+            if carrier_outbound and carrier_inbound:
                 break
 
         results.append(
             FlightQuote(
-                quote["OutboundLeg"]["DestinationId"],
+                destination_airport,
+                destination_country,
                 quote["MinPrice"],
                 quote["OutboundLeg"]["DepartureDate"],
-                quote["OutboundLeg"]["CarrierIds"],
+                quote["InboundLeg"]["DepartureDate"],
+                carrier_outbound,
+                carrier_inbound,
             )
         )
 

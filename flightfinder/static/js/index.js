@@ -1,12 +1,18 @@
 let outboundIATACode = "";
+let dateOutbound = "";
 
-new autoComplete({
-    selector: 'input[id="portOutbound"]',
+datepicker("#date-outbound", {
+    minDate: new Date(),
+    onSelect: (instance) => dateOutbound = dateFormatter((instance.dateSelected).toISOString())
+});
+
+new AutoComplete({
+    selector: "input[id='port-outbound']",
     minChars: 3,
     delay: 250,
     source: function (term, suggest) {
-        const apiRequest = new Request('https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/' +
-            'apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=' + term, {
+        const apiRequest = new Request("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/" +
+            "apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=" + term, {
             headers: {
                     "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
                     "X-RapidAPI-Key": "70f8ad8a68mshf3eb22144cd2fbbp1c6840jsn4efbf8230f95"
@@ -14,12 +20,12 @@ new autoComplete({
         });
 
         fetch(apiRequest)
-            .then(response => {
+            .then((response) => {
                 if (response.ok) {
-                    return response.json()
+                    return response.json();
                 }
             })
-            .then(data => {
+            .then((data) => {
                 let places = [];
                 const {Places} = data;
                 Places.forEach(location => {
@@ -36,38 +42,69 @@ new autoComplete({
         if (PlaceId === CityId) PlaceId = "Any";
         else PlaceId = PlaceId.slice(0, -4);
 
-        return '<div class="autocomplete-suggestion" outbound-iata-code="' + uncutPlaceId + '" ' +
-               'mocks-val="' + PlaceName + ' (' + PlaceId + ') ' + CountryName +'">' +
-                    '<b>' + PlaceName + '</b>' +
-                    ' (' + PlaceId + ') ' + CountryName +'' +
-               '</div>'
+        return "<div class='autocomplete-suggestion' outbound-iata-code='" + uncutPlaceId + "' " +
+               "data-val='" + PlaceName + " (" + PlaceId + ") " + CountryName +"'>" +
+                    "<b>" + PlaceName + "</b>" +
+                    " (" + PlaceId + ") " + CountryName +
+               "</div>"
     },
     onSelect: function (e, term, item) {
-        outboundIATACode = item.getAttribute('outbound-iata-code');
+        outboundIATACode = item.getAttribute("outbound-iata-code");
     }
 });
 
-function getResults() {
-    const apiRequest = new Request('https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/' +
-            'apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=' + term, {
-            headers: {
-                    "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                    "X-RapidAPI-Key": "70f8ad8a68mshf3eb22144cd2fbbp1c6840jsn4efbf8230f95"
-            }
-        });
+function postInputs() {
+    fetch("/getQuotes", {
+        method: "POST",
+        headers: new Headers({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify({
+            portOutbound: outboundIATACode,
+            dateOutbound: dateOutbound,
+            earliestTimeOutbound: document.getElementById("earliest-time-outbound").value,
+        })
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+    }).then(data => {
+        clearQuotes();
+        slidePaneUp();
+        populateQuoteList(data)
+    });
+}
 
-        fetch(apiRequest)
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                }
-            })
-            .then(data => {
-                let places = [];
-                const {Places} = data;
-                Places.forEach(location => {
-                    places.push(location);
-                });
-                suggest(places);
-            });
+function dateFormatter(date) {
+    return date.split("T")[0]
+}
+
+function slidePaneUp() {
+    document.getElementsByClassName("slide")[0].style.top = "-100vh";
+}
+
+function clearQuotes() {
+    const quoteList = document.getElementById("quote-list");
+    while (quoteList.firstChild) {
+        quoteList.removeChild(quoteList.firstChild);
+    }
+}
+
+function populateQuoteList(jsonResponse) {
+    const quoteParent = document.getElementById("quote-list");
+    (jsonResponse.quotes).forEach((quote) => {
+        const quoteElement = document.createElement("div");
+        quoteElement.classList.add("quote");
+        quoteParent.appendChild(quoteElement);
+
+        const destinationPrice = document.createElement("h3");
+        destinationPrice.innerHTML = quote["destination"] + ", " + quote["country"] + " £" + quote["price"];
+        quoteElement.appendChild(destinationPrice);
+
+        const carrierDates = document.createElement("h4");
+        carrierDates.innerHTML = quote["carrierOutbound"] + " " + dateFormatter(quote["dateOutbound"]) + " - " +
+            dateFormatter(quote["dateInbound"]) + " " + quote["carrierInbound"];
+        quoteElement.appendChild(carrierDates);
+    });
 }
