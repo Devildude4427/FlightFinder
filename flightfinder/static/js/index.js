@@ -56,6 +56,10 @@ new AutoComplete({
 function postInputs() {
     fetch("/getQuotes", {
         method: "POST",
+        headers: new Headers({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }),
         body: JSON.stringify({
             portOutbound: outboundIATACode,
             dateOutbound: dateOutbound,
