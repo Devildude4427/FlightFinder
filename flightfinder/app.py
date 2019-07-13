@@ -7,6 +7,7 @@ import logging
 
 logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
 server = Flask(__name__, static_folder="static", template_folder="templates")
 server.register_blueprint(controller)
 
@@ -16,14 +17,14 @@ def start_app():
     server_thread.daemon = True
     gui_thread = multiprocessing.Process(target=start_ui)
 
-    logger.info("Starting the server on localhost:5000...")
+    logger.info("Starting the server on localhost:8080...")
     server_thread.start()
     logger.info("Starting the UI for the webview...")
     gui_thread.start()
 
 
 def start_server():
-    server.run(host="127.0.0.1", port=5000, debug=True, use_reloader=False)
+    server.run(host="127.0.0.1", port=8080, debug=True, use_reloader=False)
 
 
 def start_ui():
@@ -32,7 +33,7 @@ def start_ui():
         height=720,
         resizable=True,
         debug=True,
-        url="http://127.0.0.1:5000/",
+        url="http://127.0.0.1:8080/",
         title="Flight Finder",
     )
     w.run()
