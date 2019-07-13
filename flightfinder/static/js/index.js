@@ -3,7 +3,7 @@ let dateOutbound = "";
 
 datepicker("#date-outbound", {
     minDate: new Date(),
-    onSelect: (instance) => dateOutbound = (instance.dateSelected).toISOString().split("T")[0]
+    onSelect: (instance) => dateOutbound = dateFormatter((instance.dateSelected).toISOString())
 });
 
 new AutoComplete({
@@ -67,14 +67,26 @@ function postInputs() {
         }
     }).then(data => {
         document.getElementsByClassName("slide")[0].style.top = "-100vh";
-        const quoteParent = document.getElementById("quotes");
+        const quoteParent = document.getElementById("quote-list");
         for (let i = 0; i < data.quotes.length; i++) {
-            const destination = document.createElement("h4");
-            destination.innerHTML = data.quotes[i].destination + ", " + data.quotes[i].country;
-            quoteParent.appendChild(destination);
-            const price = document.createElement("p");
-            price.innerHTML = "£" + data.quotes[i].price;
-            quoteParent.appendChild(price);
+            const quote = document.createElement("div");
+            quote.classList.add("quote");
+            quoteParent.appendChild(quote);
+
+            const destinationPrice = document.createElement("h3");
+            destinationPrice.innerHTML = data.quotes[i]["destination"] + ", " + data.quotes[i]["country"] +
+                " £" + data.quotes[i]["price"];
+            quote.appendChild(destinationPrice);
+
+            const carrierDates = document.createElement("h4");
+            carrierDates.innerHTML = data.quotes[i]["carrierOutbound"] + " " +
+                dateFormatter(data.quotes[i]["dateOutbound"]) + " - " + dateFormatter(data.quotes[i]["dateInbound"]) +
+                " " + data.quotes[i]["carrierInbound"];
+            quote.appendChild(carrierDates);
         }
     });
+}
+
+function dateFormatter(date) {
+    return date.split("T")[0]
 }

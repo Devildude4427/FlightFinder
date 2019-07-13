@@ -10,6 +10,12 @@
     position: relative;
 }
 
+.left-pane h3 {
+    margin-top: 20px;
+    word-break: break-word;
+    white-space:normal;
+}
+
 .slide {
     width: calc(100% - 40px);
     position: absolute;
@@ -22,9 +28,22 @@
     flex: 1;
 }
 
-#quotes {
+#quote-list {
     height: 90vh;
     overflow-y:auto;
+}
+
+.quote {
+    background-color: #EFEFEF;
+    color: #C3073F;
+    border-radius: 50px;
+    margin: 10px;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.quote h3, h4 {
+    margin: 0;
 }
 
 .right-pane {
