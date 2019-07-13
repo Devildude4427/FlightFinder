@@ -66,27 +66,41 @@ function postInputs() {
             return response.json();
         }
     }).then(data => {
-        document.getElementsByClassName("slide")[0].style.top = "-100vh";
-        const quoteParent = document.getElementById("quote-list");
-        for (let i = 0; i < data.quotes.length; i++) {
-            const quote = document.createElement("div");
-            quote.classList.add("quote");
-            quoteParent.appendChild(quote);
-
-            const destinationPrice = document.createElement("h3");
-            destinationPrice.innerHTML = data.quotes[i]["destination"] + ", " + data.quotes[i]["country"] +
-                " £" + data.quotes[i]["price"];
-            quote.appendChild(destinationPrice);
-
-            const carrierDates = document.createElement("h4");
-            carrierDates.innerHTML = data.quotes[i]["carrierOutbound"] + " " +
-                dateFormatter(data.quotes[i]["dateOutbound"]) + " - " + dateFormatter(data.quotes[i]["dateInbound"]) +
-                " " + data.quotes[i]["carrierInbound"];
-            quote.appendChild(carrierDates);
-        }
+        clearQuotes();
+        slidePaneUp();
+        populateQuoteList(data)
     });
 }
 
 function dateFormatter(date) {
     return date.split("T")[0]
+}
+
+function slidePaneUp() {
+    document.getElementsByClassName("slide")[0].style.top = "-100vh";
+}
+
+function clearQuotes() {
+    const quoteList = document.getElementById("quote-list");
+    while (quoteList.firstChild) {
+        quoteList.removeChild(quoteList.firstChild);
+    }
+}
+
+function populateQuoteList(jsonResponse) {
+    const quoteParent = document.getElementById("quote-list");
+    (jsonResponse.quotes).forEach((quote) => {
+        const quoteElement = document.createElement("div");
+        quoteElement.classList.add("quote");
+        quoteParent.appendChild(quoteElement);
+
+        const destinationPrice = document.createElement("h3");
+        destinationPrice.innerHTML = quote["destination"] + ", " + quote["country"] + " £" + quote["price"];
+        quoteElement.appendChild(destinationPrice);
+
+        const carrierDates = document.createElement("h4");
+        carrierDates.innerHTML = quote["carrierOutbound"] + " " + dateFormatter(quote["dateOutbound"]) + " - " +
+            dateFormatter(quote["dateInbound"]) + " " + quote["carrierInbound"];
+        quoteElement.appendChild(carrierDates);
+    });
 }
