@@ -1,11 +1,7 @@
-import os
-import sys
 import unittest
 from json import load
 from flask import Flask
-
-sys.path.append(os.getcwd())  # Hack to be able to run the tests from a terminal
-from flightfinder.services import data_service  # noqa: E402
+from flightfinder.services import data_service
 
 
 app = Flask(__name__)
