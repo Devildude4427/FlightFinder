@@ -39,7 +39,7 @@ def process_response(api_response):
                 quote["OutboundLeg"]["DepartureDate"],
                 quote["InboundLeg"]["DepartureDate"],
                 carrier_outbound,
-                carrier_inbound
+                carrier_inbound,
             )
         )
 

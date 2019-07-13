@@ -7,7 +7,16 @@ class FlightQuote:
     carrier_outbound = ""
     carrier_inbound = ""
 
-    def __init__(self, destination_airport, destination_country, price, date_outbound, date_inbound, carrier_outbound, carrier_inbound):
+    def __init__(
+        self,
+        destination_airport,
+        destination_country,
+        price,
+        date_outbound,
+        date_inbound,
+        carrier_outbound,
+        carrier_inbound,
+    ):
         self.destination_airport = destination_airport
         self.destination_country = destination_country
         self.price = price
