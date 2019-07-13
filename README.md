@@ -2,6 +2,8 @@
 
 One of the things I enjoy doing the most is traveling. But, as a university student, I need to travel on a budget. That is why I love tools like SkyScanner, which can show the cheapest destinations for a given port of departure. The goals with this tool include relearning Python and to make a desktop app that will give me a simple readout of destinations 1 week in advance, maybe even have it send an email containing pertinent information. This will be a novelty app and little more, as large sites already have this functionality and more.
 
+Current future plans include to expand the options menu, so that a user can change the locale, currency, and date range, and to add direct links to quote offerings so a user can jump from the app right to purchase.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for use.
@@ -9,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 Current options/abilities of the program:
 
 - Creates a simple GUI and web server
-- Connects to a SkyScanner API, but does not yet display responses
+- Allows a user to enter an airport, and returns round-trip flight quotes
 
 ### Prerequisites
 
