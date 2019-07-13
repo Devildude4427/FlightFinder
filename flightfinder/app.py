@@ -5,7 +5,7 @@ from flask import Flask
 from flightfinder.controller import controller
 import logging
 
-logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.DEBUG)
+logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 server = Flask(__name__, static_folder="static", template_folder="templates")
