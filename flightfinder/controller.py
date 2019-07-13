@@ -1,7 +1,7 @@
 import logging
 from json import load
 from flask import render_template, Blueprint, request
-from flightfinder.services import data_service
+from flightfinder.services import data_service, api_service
 
 logger = logging.getLogger(__name__)
 controller = Blueprint("controller", __name__)
@@ -14,9 +14,9 @@ def landing_page():
 
 @controller.route("/getQuotes", methods=["POST"])
 def destinations_data():
-    if request.data:
-        logger.info("Request received by server")
-    # response = api_service.request()
-    response = load(open("flightfinder/mocks/newData.json"))
+    if request.json:
+        logger.info("Quote request received by server")
+    response = api_service.request(request.json)
+    # response = load(open("flightfinder/mocks/newData.json"))
     results = data_service.process_response(response)
     return results
