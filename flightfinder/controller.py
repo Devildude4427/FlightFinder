@@ -1,5 +1,4 @@
 import logging
-from json import load
 from flask import render_template, Blueprint, request
 from flightfinder.services import data_service, api_service
 
@@ -17,6 +16,5 @@ def destinations_data():
     if request.json:
         logger.info("Quote request received by server")
     response = api_service.request(request.json)
-    # response = load(open("flightfinder/mock/data.json"))
     results = data_service.process_response(response)
     return results
