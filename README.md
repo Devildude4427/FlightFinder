@@ -47,7 +47,7 @@ A GUI will appear that you can use to run the program.
 
 ## Running the tests
 
-All tests are located in ~/tests, and can be ran using in root:
+All tests are located in ~/tests, and can be ran using the following command from the project root:
 
 ```
 python -m unittest discover -s tests
