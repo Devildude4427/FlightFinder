@@ -2,7 +2,6 @@ import requests
 
 
 def request(request_data):
-    # response = urllib.request.urlopen(create_api_request(request_data))
     response = create_api_request(request_data)
     return response.json()
 
