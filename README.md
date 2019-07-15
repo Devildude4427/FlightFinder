@@ -43,3 +43,38 @@ python3 setup.py
 ```
 
 A GUI will appear that you can use to run the program.
+
+
+## Running the tests
+
+All tests are located in ~/tests, and can be ran using in root:
+
+```
+python -m unittest tests.test_data_processing
+```
+
+### Test Methadology
+
+As of now, the only item tested is the data processing for a static and mock data file. This at least ensures at no point does the underlying logic break due to changes in Flask's jsonify implementation or anything similar. Ideally, I'd like to set up a periodic request to the flight API has not changed drastically, but that is something for the future, if I even want to keep this updated.
+
+### Code Style
+
+All Python code is styled by [Black](https://github.com/ambv/black), with no deviations. The styler can be run after setting the virual environment with the command:
+
+```
+black flightfinder
+```
+
+or 
+
+```
+black tests
+```
+
+## Authors
+
+* **Ryan Christian** - *Entire Project* - [Ryan Christian](https://github.com/RyanChristian4427)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
