@@ -50,7 +50,7 @@ A GUI will appear that you can use to run the program.
 All tests are located in ~/tests, and can be ran using in root:
 
 ```
-python -m unittest tests.test_data_processing
+python -m unittest discover -s tests
 ```
 
 ### Test Methadology
