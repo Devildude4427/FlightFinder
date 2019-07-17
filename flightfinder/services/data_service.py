@@ -18,6 +18,9 @@ def process_response(api_response):
         # Price capped at 40 GBP one way, and only direct flights
         if quote["MinPrice"] > 100.00 or not quote["Direct"]:
             continue
+
+        # TODO Origin place needs to be checked for city origins. "London" may be provided, but user needs to know
+        #  which London airport the quote is for
         for place in places:
             if place["PlaceId"] == quote["OutboundLeg"]["DestinationId"]:
                 destination_airport = place["Name"]
