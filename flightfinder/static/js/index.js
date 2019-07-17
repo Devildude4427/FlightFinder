@@ -62,27 +62,42 @@ AutoComplete({
 });
 
 function postInputs() {
-    fetch("/getQuotes", {
-        method: "POST",
-        headers: new Headers({
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify({
-            portOutbound: outboundIATACode,
-            dateOutbound: dateOutbound,
-            earliestTimeOutbound: document.getElementById("earliest-time-outbound").value,
-        })
-    }).then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-    }).then(data => {
-        clearQuotes();
-        slidePaneUp();
-        populateQuoteList(data)
-    });
+    if(formValidated()) {
+        fetch("/getQuotes", {
+            method: "POST",
+            headers: new Headers({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify({
+                portOutbound: outboundIATACode,
+                dateOutbound: dateOutbound,
+                earliestTimeOutbound: document.getElementById("earliest-time-outbound").value,
+                locale: locale(),
+                country: country(),
+                currency: currency(),
+            })
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+            }).then(data => {
+                clearQuotes();
+                slidePaneUp();
+                populateQuoteList(data);
+            });
+    }
 }
+
+let formValidated = () => {
+    const errorMessage = document.getElementById("error-message");
+   if (!outboundIATACode || outboundIATACode.indexOf('-sky') === -1) {
+       errorMessage.style.opacity= "1";
+       return false;
+   }
+   errorMessage.style.opacity= "0";
+   return true;
+};
 
 function dateFormatter(date) {
     return date.split("T")[0];
