@@ -98,8 +98,8 @@ label {
 .side-menu {
   display: block;
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 20px;
+  right: 20px;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -161,7 +161,7 @@ label {
     position: absolute;
     width: 35vw;
     height: 100vh;
-    margin: -77px 0 0 0;
+    margin: -47px 0 0 0;
     padding: 125px 20px 50px;
     right: -100px;
 
