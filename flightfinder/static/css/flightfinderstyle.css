@@ -16,6 +16,11 @@
     white-space:normal;
 }
 
+.left-pane img {
+    max-width: 256px;
+    margin-top: 80px;
+}
+
 .slide {
     width: calc(100% - 40px);
     position: absolute;
@@ -26,6 +31,10 @@
 .title-pane, .quote-pane {
     height: 100vh;
     flex: 1;
+}
+
+.title-pane div {
+    display: inline-block;
 }
 
 #quote-list {
@@ -58,6 +67,10 @@
     background: transparent;
 }
 
+.right-pane form {
+    margin-top: 40px;
+}
+
 label {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -81,9 +94,6 @@ label {
 .btn-ff:active {
     background-color: #6F2232;
 }
-
-
-
 
 .side-menu {
   display: block;
@@ -147,7 +157,6 @@ label {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-
 #menu {
     position: absolute;
     width: 35vw;
@@ -184,4 +193,8 @@ label {
 .side-menu input:checked ~ #menu {
   transform: scale(1.0, 1.0);
   opacity: 1;
+}
+
+#error-message {
+    opacity: 0;
 }

@@ -16,8 +16,8 @@
                     <div class="pane left-pane">
                         <div class="slide">
                             <div class="title-pane">
-                                <div style="display: inline-block;">
-                                    <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png" style="max-width: 256px; margin-top: 80px;">
+                                <div>
+                                    <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png">
                                 </div>
                                 <h2>Flight Finder</h2>
                                 <h3>Finding you the cheapest getaway destinations</h3>
@@ -53,11 +53,8 @@
                                 </div>
                             </form>
                         </div>
-
-
-
-                        <h2 style="margin-top: 40px;">Getting Started</h2>
                         <form>
+                            <h2>Getting Started</h2>
                             <div class="form-group">
                                 <label for="port-outbound">Port of Departure</label>
                                 <input class="form-control" type="text" id="port-outbound" placeholder="e.g London Gatwick" tabindex="1">
@@ -72,7 +69,7 @@
                             </div>
                             <div class="form-actions">
                                 <button type="button" class="btn btn-large btn-ff" onclick="postInputs()">Get Results</button>
-                                <p id="error-message" style="opacity: 0">Please ensure you select an airport or location from the drop down menu</p>
+                                <p id="error-message">Please ensure you select an airport or location from the drop down menu</p>
                             </div>
                         </form>
                     </div>
