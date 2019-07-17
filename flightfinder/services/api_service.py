@@ -13,7 +13,13 @@ def create_api_request(request_data):
     year_month = "{}-{}".format(today.year, "{:02d}".format(today.month))
 
     url = (
-        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/UK/GBP/en-GB/"
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/"
+        + request_data["country"]
+        + "/"
+        + request_data["currency"]
+        + "/"
+        + request_data["locale"]
+        + "/"
         + request_data["portOutbound"]
         + "/anywhere/"
         + year_month
