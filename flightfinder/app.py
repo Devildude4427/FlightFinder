@@ -1,3 +1,5 @@
+import sys
+import os
 import webview
 import multiprocessing
 from threading import Thread
@@ -7,9 +9,6 @@ import logging
 
 logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-server = Flask(__name__, static_folder="static", template_folder="templates")
-server.register_blueprint(controller)
 
 
 def start_app():
@@ -24,6 +23,15 @@ def start_app():
 
 
 def start_server():
+    if getattr(sys, "frozen", False):
+        server = Flask(
+            __name__,
+            static_folder=os.path.join(sys._MEIPASS, "static"),
+            template_folder=os.path.join(sys._MEIPASS, "templates"),
+        )
+    else:
+        server = Flask(__name__, static_folder="static", template_folder="templates")
+    server.register_blueprint(controller)
     server.run(host="127.0.0.1", port=8080, debug=True, use_reloader=False)
 
 
