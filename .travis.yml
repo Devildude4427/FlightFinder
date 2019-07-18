@@ -12,6 +12,9 @@ matrix:
 #        - python -m pip install --upgrade pip
 #      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 
+before_install:
+  - sudo apt-get install libgtk-3-dev -y
+
 install:
   - echo "GTK+ Version"
   - sudo apt install gtk+-3.0
