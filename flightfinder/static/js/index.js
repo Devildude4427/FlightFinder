@@ -118,18 +118,30 @@ function currencySymbol() {
 
 function populateQuoteList(jsonResponse) {
     const quoteParent = document.getElementById("quote-list");
-    (jsonResponse.quotes).forEach((quote) => {
+    if (!jsonResponse.hasOwnProperty("errorMessage")) {
+        (jsonResponse.quotes).forEach((quote) => {
+            const quoteElement = document.createElement("div");
+            quoteElement.classList.add("quote");
+            quoteParent.appendChild(quoteElement);
+
+            const destinationPrice = document.createElement("h3");
+            destinationPrice.innerHTML = quote["destination"] + ", " + quote["country"] + currencySymbol() + quote["price"];
+            quoteElement.appendChild(destinationPrice);
+
+            const carrierDates = document.createElement("h4");
+            carrierDates.innerHTML = quote["carrierOutbound"] + " " + dateFormatter(quote["dateOutbound"]) + " - " +
+                dateFormatter(quote["dateInbound"]) + " " + quote["carrierInbound"];
+            quoteElement.appendChild(carrierDates);
+        });
+    }
+    else {
         const quoteElement = document.createElement("div");
         quoteElement.classList.add("quote");
         quoteParent.appendChild(quoteElement);
 
         const destinationPrice = document.createElement("h3");
-        destinationPrice.innerHTML = quote["destination"] + ", " + quote["country"] + currencySymbol() + quote["price"];
+        destinationPrice.innerHTML = jsonResponse["errorMessage"];
         quoteElement.appendChild(destinationPrice);
+    }
 
-        const carrierDates = document.createElement("h4");
-        carrierDates.innerHTML = quote["carrierOutbound"] + " " + dateFormatter(quote["dateOutbound"]) + " - " +
-            dateFormatter(quote["dateInbound"]) + " " + quote["carrierInbound"];
-        quoteElement.appendChild(carrierDates);
-    });
 }
