@@ -1,4 +1,4 @@
-# FlightFinder [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+# FlightFinder [![Build Status](https://travis-ci.org/RyanChristian4427/FlightFinder.svg?branch=master)](https://travis-ci.org/RyanChristian4427/FlightFinder) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 One of the things I enjoy doing the most is traveling. But, as a university student, I need to travel on a budget. That is why I love tools like SkyScanner, which can show the cheapest destinations for a given port of departure. The goals with this tool include relearning Python and to make a desktop app that will give me a simple readout of destinations 1 week in advance, maybe even have it send an email containing pertinent information. This will be a novelty app and little more, as large sites already have this functionality and more.
 
