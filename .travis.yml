@@ -32,5 +32,6 @@ deploy:
   file: dist/FlightFinder
   skip_cleanup: true
   on:
+    tags: true
     repo: RyanChristian4427/FlightFinder
     branch: feature/ciPipeline
