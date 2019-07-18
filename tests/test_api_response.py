@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 class TestAPIResponse(unittest.TestCase):
     # Arbitrary airport to get information from
-    request_data = {"portOutbound": "BRS-sky"}
+    request_data = {"portOutbound": "BRS-sky", "country": "UK", "currency": "GBP", "locale": "en-GB"}
     results = api_service.request(request_data)
 
     def test_quote_length(self):
