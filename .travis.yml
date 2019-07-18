@@ -4,21 +4,24 @@ matrix:
     - name: "Xenial Linux"
       python: 3.7
       dist: xenial
-    - name: "Windows"
-      os: windows
-      language: shell
-      before_install:
-        - choco install python
-        - python -m pip install --upgrade pip
-      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+#    - name: "Windows"
+#      os: windows
+#      language: shell
+#      before_install:
+#        - choco install python
+#        - python -m pip install --upgrade pip
+#      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 
 install:
   - echo "GTK+ Version"
   - sudo apt install gtk+-3.0
+  - pkg-config --cflags gtk+-3.0
   - pkg-config --modversion gtk+-3.0
+
   - echo "Webkit2GTK Version"
   - sudo apt install webkit2gtk-4.0
   - pkg-config --modversion webkit2gtk-4.0
+
   - pip3 install --upgrade pip
   - pip3 install -r requirements.txt
 
