@@ -14,8 +14,10 @@ matrix:
 
 install:
   - echo "GTK+ Version"
+  - sudo apt install gtk+-3.0
   - pkg-config --modversion gtk+-3.0
   - echo "Webkit2GTK Version"
+  - sudo apt install webkit2gtk-4.0
   - pkg-config --modversion webkit2gtk-4.0
   - pip3 install --upgrade pip
   - pip3 install -r requirements.txt
