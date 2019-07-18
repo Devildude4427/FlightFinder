@@ -17,8 +17,7 @@ before_install:
 
 install:
   - echo "GTK+ Version"
-#  - sudo apt install gtk+-3.0
-  - pkg-config --cflags gtk+-3.0
+  - sudo apt install gtk+-3.0
   - pkg-config --modversion gtk+-3.0
 
   - echo "Webkit2GTK Version"
