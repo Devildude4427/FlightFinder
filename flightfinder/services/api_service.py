@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 
 
@@ -7,10 +8,23 @@ def request(request_data):
 
 
 def create_api_request(request_data):
+    # Temporary until date selection is implemented
+    today = datetime.today()
+    year_month = "{}-{}".format(today.year, "{:02d}".format(today.month))
+
     url = (
-        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/UK/GBP/en-GB/"
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/"
+        + request_data["country"]
+        + "/"
+        + request_data["currency"]
+        + "/"
+        + request_data["locale"]
+        + "/"
         + request_data["portOutbound"]
-        + "/anywhere/2019-07/2019-07"
+        + "/anywhere/"
+        + year_month
+        + "/"
+        + year_month
     )
     headers = {
         "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",

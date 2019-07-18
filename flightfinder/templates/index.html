@@ -16,8 +16,8 @@
                     <div class="pane left-pane">
                         <div class="slide">
                             <div class="title-pane">
-                                <div style="display: inline-block;">
-                                    <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png" style="max-width: 256px; margin-top: 80px;">
+                                <div>
+                                    <img alt="Flight Finder Logo" src="../static/resources/ico-white-2k.png">
                                 </div>
                                 <h2>Flight Finder</h2>
                                 <h3>Finding you the cheapest getaway destinations</h3>
@@ -29,9 +29,32 @@
                         </div>
                     </div>
                     <div class="pane right-pane">
-                        <span style="float: right" class="icon icon-menu"></span>
-                        <h2 style="margin-top: 40px;">Getting Started</h2>
+                        <div class="side-menu">
+                            <input id="menu-toggle" type="checkbox" />
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                            <form id="menu">
+                                <div class="form-group">
+                                    <label for="select-locale">Select Locale</label>
+                                    <select class="form-control" id="select-locale">
+                                         <option value="en-GB">English-UK</option>
+                                         <option value="en-US">English-US</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="select-currency">Select Currency</label>
+                                    <select class="form-control" id="select-currency">
+                                         <option value="GBP">Pound Sterling</option>
+                                         <option value="USD">US Dollar</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
                         <form>
+                            <h2>Getting Started</h2>
                             <div class="form-group">
                                 <label for="port-outbound">Port of Departure</label>
                                 <input class="form-control" type="text" id="port-outbound" placeholder="e.g London Gatwick" tabindex="1">
@@ -46,16 +69,16 @@
                             </div>
                             <div class="form-actions">
                                 <button type="button" class="btn btn-large btn-ff" onclick="postInputs()">Get Results</button>
+                                <p id="error-message">Please ensure you select an airport or location from the drop down menu</p>
                             </div>
                         </form>
                     </div>
                 </div>
-<!--                <div style=";" class="pane-sm side-menu">...</div>-->
             </div>
         </div>
 
         <script src="{{ url_for('static', filename='js/auto-complete.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/datepicker.min.js') }}"></script>
-        <<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     </body>
 </html>

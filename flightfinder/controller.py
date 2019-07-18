@@ -16,6 +16,5 @@ def destinations_data():
     if request.json:
         logger.info("Quote request received by server")
     response = api_service.request(request.json)
-    logger.debug("API Response: " + response)
     results = data_service.process_response(response)
     return results
