@@ -1,38 +1,12 @@
+dist: xenial
 language: python
+python: 3.7
 cache: pip
-matrix:
-  include:
-  - name: Xenial Linux
-    python: 3.7
-    dist: xenial
-
-before_install:
-- sudo apt-get install libgtk-3-dev
-- sudo apt-get install gtk+-3.0
-- sudo apt-get install webkit2gtk-4.0
 
 install:
 - pip3 install --upgrade pip
-- pip3 install -r requirements.txt
+- pip3 install -r ci_requirements.txt
 
 script:
 - python3 -m unittest discover -s tests
-#- pyinstaller flightfinder.spec
 
-# Does not work properly
-#before_deploy:
-#- git config --local user.name "Ryan Christian"
-#- git config --local user.email "ryanchristian4427@gmail.com"
-#- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M')-$(git log --format=%h -1)}
-#- git tag $TRAVIS_TAG
-#
-#deploy:
-#  provider: releases
-#  api_key:
-#    secure: QlM1pkSEoZAsUgalFrDlfR7JPaDC5URaOPnkv0saMnfjUTSuvNyHXJmouikTpGCcQf6p53w0fHnnol5Q3GxT7PdbRtmr6A+Uxoxi7QDtxPU18pmUMLqTZLC5kpCOccBf5zoblmZME1ZnutAt1qNU6D30KgJv42XXVKN3LmXSUs8y5yqGAgZQJ80Tenvte9nwtqRK5XbNJ8MA+5fcoD/MDkiV8X12OhH1jejAv/Jm3h/n3eQo+390Yx8ZcvoBNRbdAT5MAc8RDIpgjbLxcme2Lcdw39plsV6e/RaHfusIkB1n0tjc3gnTdEt0ki6Flp4Md7YH7uOD7WL5u+Zfyg4qDCcRsGX0RuJBcFEmhlaPDA4pclEixRl7uv2dEeTp5lerf6iaBCQpVXhzpo4aI+DrF3jjoN5vDZxTnRmZP4tv0LKqYnYVxzTkUtZsRg4hzqHRjXY6CC0rEjR5dj3zPkdlvc10wEbG3BIy3tpaTG1gFpveKoTuTGN6YL7Vy/9z4ppk90dkexp2zJPXOc/4mVLh+7eq9eZfzGdRuYw/S8HVfxLTLcNkM9wcEVJzDt2qkx0KhVLmFs6ttyanD2XQ3unPXoYKWCm0sdveFBqb1EWtQlzhL4HxKSCRLteBkdTTayQN0jjYhmqgy6lkMQ6KMfTSvBx5+dhEsn6q589jmWQQwqY=
-#  file: dist/FlightFinder
-#  skip_cleanup: true
-#  on:
-#    tags: true
-#    repo: RyanChristian4427/FlightFinder
-#    branch: feature/ciPipeline
