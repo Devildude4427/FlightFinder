@@ -6,12 +6,13 @@ Current future plans include to add direct links to quote offerings so a user ca
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for use.
+These instructions will get you a copy of the project up and running on your local machine for use. Currently, this has only been tested on a Linux machine, though the webview should be cross platform. Other platforms (or systems that don't have webkit2gtk as the default rendering engine) are untested.
 
 Current options/abilities of the program:
 
-- Creates a simple GUI and web server
+- Creates a webview for rendering the content of the Flask server
 - Allows a user to enter an airport, and returns round-trip flight quotes
+- Users can change locale and currency for the quotes (quotes differ by locale, interestingly)
 
 ### Prerequisites
 
