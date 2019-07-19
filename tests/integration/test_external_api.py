@@ -1,15 +1,86 @@
 import unittest
 from flask import Flask
-from flightfinder.services.api_service import create_api_request
+from flightfinder.services import api_service
 
 
 app = Flask(__name__)
 
 
-class TestExternalAPI(unittest.TestCase):
-    request_data = {
-        "portOutbound": "BRS-sky",
-        "country": "UK",
-        "currency": "GBP",
-        "locale": "en-GB",
-    }
+# class TestExternalAPI(unittest.TestCase):
+#     request_data = {
+#         "portOutbound": "BRS-sky",
+#         "country": "UK",
+#         "currency": "GBP",
+#         "locale": "en-GB",
+#     }
+#
+#     def test_api_response(self):
+#         with app.app_context():
+#             response = api_service.create_api_request(self.request_data).json()
+#             data_errors = api_service.check_data_errors(response)
+#             self.assertFalse(data_errors)
+#
+#
+#     results = api_service.request(request_data)
+#
+#     def test_quote_length(self):
+#         with app.app_context():
+#             self.assertGreater(len(self.results["Quotes"]), 0)
+#
+#     def test_places_length(self):
+#         with app.app_context():
+#             self.assertGreater(len(self.results["Places"]), 0)
+#
+#     def test_carriers_length(self):
+#         with app.app_context():
+#             self.assertGreater(len(self.results["Carriers"]), 0)
+#
+#     def test_quote_price(self):
+#         with app.app_context():
+#             self.assertIsInstance(self.results["Quotes"][0]["MinPrice"], float)
+#
+#     def test_quote_direct(self):
+#         with app.app_context():
+#             self.assertIsInstance(self.results["Quotes"][0]["Direct"], bool)
+#
+#     def test_quote_carriers(self):
+#         with app.app_context():
+#             # Tests that carriers are still numbered keys, rather than string names
+#             self.assertIsInstance(
+#                 self.results["Quotes"][0]["OutboundLeg"]["CarrierIds"][0], int
+#             )
+#             self.assertIsInstance(
+#                 self.results["Quotes"][0]["InboundLeg"]["CarrierIds"][0], int
+#             )
+#
+#     def test_quote_destinations(self):
+#         with app.app_context():
+#             self.assertIsInstance(
+#                 self.results["Quotes"][0]["OutboundLeg"]["OriginId"], int
+#             )
+#             self.assertIsInstance(
+#                 self.results["Quotes"][0]["OutboundLeg"]["DestinationId"], int
+#             )
+#
+#             self.assertIsInstance(
+#                 self.results["Quotes"][0]["InboundLeg"]["OriginId"], int
+#             )
+#             self.assertIsInstance(
+#                 self.results["Quotes"][0]["InboundLeg"]["DestinationId"], int
+#             )
+#
+#             # Tests that the information is still round-trip
+#             self.assertEqual(
+#                 self.results["Quotes"][0]["OutboundLeg"]["OriginId"],
+#                 self.results["Quotes"][0]["InboundLeg"]["DestinationId"],
+#             )
+#             self.assertEqual(
+#                 self.results["Quotes"][0]["OutboundLeg"]["DestinationId"],
+#                 self.results["Quotes"][0]["InboundLeg"]["OriginId"],
+#             )
+#
+#     # TODO figure out how to test the dates
+#     # TODO decide if rest of data should be tested, or just test to see if my code can handle response
+#
+#
+#
