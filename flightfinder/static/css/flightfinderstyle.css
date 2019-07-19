@@ -163,7 +163,7 @@ label {
     height: 100vh;
     margin: -47px 0 0 0;
     padding: 125px 20px 50px;
-    right: -100px;
+    right: -20px;
 
     background: #C3073F;
     color: #EFEFEF;
@@ -185,7 +185,7 @@ label {
 
 #menu input, #menu select {
     border: 0;
-    width: calc(100% - 40px);
+    width: 100%;
     border-bottom: 2px solid #EFEFEF;
     background: transparent;
 }
