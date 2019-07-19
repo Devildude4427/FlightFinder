@@ -1,4 +1,5 @@
 import unittest
+from json import load
 from datetime import datetime
 from flask import Flask
 from flightfinder.services import api_service
@@ -8,6 +9,9 @@ app = Flask(__name__)
 
 
 class TestInternalResponses(unittest.TestCase):
+    """This tests the internal API, and ensures my services can still handle the expected json"""
+
+    mock_data = "flightfinder/mock/data.json"
     request_data = {
         "portOutbound": "BRS-sky",
         "country": "UK",
@@ -16,9 +20,11 @@ class TestInternalResponses(unittest.TestCase):
     }
     results = ""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         with app.app_context():
-            self.results = api_service.request(self.request_data).json
+            with open(cls.mock_data, "r") as f:
+                cls.results = api_service.process_response(load(f)).json
 
     def test_quote_length(self):
         with app.app_context():
@@ -46,4 +52,5 @@ class TestInternalResponses(unittest.TestCase):
             outbound = datetime.strptime(
                 self.results["quotes"][0]["dateOutbound"], date_format
             )
-            self.assertGreater(outbound, datetime.now())
+            # Simple date comparison, not worth much with mock data, but it's here anyways
+            self.assertLess(outbound, datetime.now())
