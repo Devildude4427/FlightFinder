@@ -1,6 +1,6 @@
 import logging
 from flask import render_template, Blueprint, request
-from flightfinder.services import data_service, api_service
+from flightfinder.services import api_service
 
 logger = logging.getLogger(__name__)
 controller = Blueprint("controller", __name__)
@@ -15,6 +15,5 @@ def landing_page():
 def destinations_data():
     if request.json:
         logger.info("Quote request received by server")
-    response = api_service.request(request.json)
-    results = data_service.process_response(response)
+    results = api_service.request(request.json)
     return results
