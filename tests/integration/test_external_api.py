@@ -20,7 +20,7 @@ class TestExternalAPI(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         with app.app_context():
-            cls.response = api_service.create_api_request(cls.request_data).json()
+            cls.response = api_service.create_api_request(cls.request_data)[0].json()
 
     def test_api_response_for_errors(self):
         with app.app_context():

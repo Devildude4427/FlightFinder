@@ -24,7 +24,7 @@ class TestInternalResponses(unittest.TestCase):
     def setUpClass(cls):
         with app.app_context():
             with open(cls.mock_data, "r") as f:
-                cls.results = api_service.process_response(load(f)).json
+                cls.results = api_service.process_response([load(f)]).json
 
     def test_quote_length(self):
         with app.app_context():
