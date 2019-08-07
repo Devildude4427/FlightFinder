@@ -54,7 +54,7 @@ All tests are located in ~/tests, and can be ran using the following command fro
 python -m unittest discover -s tests
 ```
 
-### Test Methadology
+### Test Methodology
 
 As of now, the only item tested is the data processing for a static and mock data file. This at least ensures at no point does the underlying logic break due to changes in Flask's jsonify implementation or anything similar. Ideally, I'd like to set up a periodic request to the flight API has not changed drastically, but that is something for the future, if I even want to keep this updated.
 
