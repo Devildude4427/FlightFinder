@@ -20,6 +20,8 @@ What things you need:
 
 ```
 Python3/pip3
+Python3-dev
+Webkit2GTK-4.0
 ```
 
 ### Running
@@ -27,7 +29,7 @@ Python3/pip3
 First, navigate to the root project directory and create a virtual environment:
 
 ```
-python3 -m venv /env
+python3 -m venv ./env
 source env/bin/activate
 ```
 
